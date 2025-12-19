@@ -1,0 +1,17 @@
+#save to /etc/systemd/system/
+[Unit]
+Description=RasPi Composite Media Player
+After=systemd-tmpfiles-setup.service multi-user.target sound.target
+Wants=sound.target
+
+[Service]
+Type=simple
+User=mediaplayer
+ExecStart=/usr/local/bin/video-player.sh
+Restart=always
+RestartSec=2
+StandardOutput=null
+StandardError=null
+
+[Install]
+WantedBy=multi-user.target
