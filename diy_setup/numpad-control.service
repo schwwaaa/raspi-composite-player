@@ -1,0 +1,16 @@
+# put in /etc/systemd/system/
+[Unit]
+Description=Keyboard Control for MPlayer (optional)
+After=multi-user.target systemd-tmpfiles-setup.service video-player.service
+Requires=video-player.service
+
+[Service]
+Type=simple
+User=root
+ExecStartPre=/bin/sh -c 'logger -t numpad-control "starting (boot)"; sleep 8'
+ExecStart=/usr/local/bin/keyboard-control.sh
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
