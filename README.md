@@ -16,31 +16,7 @@ So… **we did it so you don’t have to**.
 
 ---
 
-## What This Image Does
-
-This project provides a **plug-and-play SD card image** that:
-
-- outputs video **and audio** over the 3.5 mm composite jack  
-- automatically plays MP4s from a directory  
-- loops forever until power is removed  
-- supports optional keyboard / numpad controls  
-- works reliably on **Raspberry Pi 3 Model B+**
-
----
-
 ## Usage (Quick Start)
-
-1. Write the image to an SD card  
-2. Insert the SD card into the Pi  
-3. Power it on  
-
-That’s it.
-
-If MP4 files are present in the media directory, video will start automatically and loop until power is removed.
-
----
-
-## Detailed Setup
 
 ### Prerequisites
 
@@ -52,11 +28,31 @@ If MP4 files are present in the media directory, video will start automatically 
   - Wi-Fi
   - USB keyboard or numpad
 
+### Steps
+
+1. Download image
+   https://drive.google.com/file/d/1Y6pwTen5M_y9hYgS8aJSBdjM-uiVRS7-/view?usp=sharing
+3. Uncompress image file
+4. Write the image to an SD card  
+5. Insert the SD card into the Pi  
+6. Power it on  
+
+That’s it.
+
+The pi will boot, and the demo video should play automatically, and will loop until power is removed.
+
 ---
 
-## Network Configuration
+## File Management
+MP4 files in the following directory will be looped, in ascending alphanumeric order:
 
-SFTP and SCP protocols are ideal for file management.
+```
+/home/mediaplayer/media
+```
+
+SFTP and SCP protocols are ideal to transfer files, but require a network connection. . 
+
+Or, using a linux host, you can just plop files in the media dir via rootfs
 
 ### Ethernet
 
@@ -98,26 +94,6 @@ ssh mediaplayer@<pi-ip-address>
 
 ---
 
-## File Management
-
-Once networked, file transfer is easy via:
-
-- SCP
-- SFTP
-
-All media files live here:
-
-```
-/home/mediaplayer/media
-```
-
-Any `.mp4` files in this directory will:
-
-- play in ascending alphabetical order  
-- loop continuously  
-
----
-
 ## Video Preparation (Important)
 
 This project was designed specifically for **composite CRT playback**.
@@ -146,7 +122,6 @@ pad=720:480:(ow-iw)/2:(oh-ih)/2" \
 ## Keyboard / Numpad Controls (Optional)
 
 A USB keyboard or numpad can be connected at any time.
-
 Controls are optional — video will autoplay even if nothing is plugged in.
 
 ### Default Controls
@@ -161,33 +136,10 @@ Controls are optional — video will autoplay even if nothing is plugged in.
 | Q / Esc | Quit playback |
 
 The control service:
-
 - starts automatically after boot  
 - waits for devices to appear  
 - works with **any USB keyboard**  
 - recovers if devices are unplugged  
-
----
-
-
-## Detailed Usage (Full Setup Flow)
-
-1. Download the prepared `.img`
-2. Burn it using balenaEtcher or your preferred method  
-   - Raspberry Pi Imager → **Custom Image**
-3. (Optional) Add:
-   - `wpa_supplicant.conf`
-   - `userconf`
-   - blank `ssh` file
-4. Insert SD card into Pi
-5. Power on
-6. Transfer prepared MP4 files into:
-
-```
-/home/mediaplayer/media
-```
-
-Reboot if needed — playback is automatic.
 
 ---
 
@@ -213,25 +165,9 @@ This image already handles that — but if rolling your own, check `config.txt` 
 
 ---
 
-## Rolling Your Own (Advanced)
-
-If you want to reproduce this manually:
-
-- Use **Bullseye (32-bit)**
-- Disable KMS / use legacy framebuffer
-- Force composite output
-- Use `mplayer` with `fbdev`
-- Pre-encode all media
-- systemd service for autoplay
-- Optional FIFO control for input devices
-
-This repository exists so you **don’t have to do that**.
-
----
 
 ## Notes
 
 The goal of this project is **not modern quality** — it’s **reliable composite playback**.
 
-It is intentionally simple, deterministic, and boring —  your results may vary.
-
+It is intentionally simple and boring, so you don't have to.
