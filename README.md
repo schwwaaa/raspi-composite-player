@@ -50,7 +50,7 @@ MP4 files in the following directory will be looped, in ascending alphanumeric o
 /home/mediaplayer/media
 ```
 
-SFTP and SCP protocols are ideal to transfer files, but require a network connection. . 
+SFTP and SCP protocols are ideal to transfer files, but require a network connection.
 
 Or, using a linux host, you can just plop files in the media dir via rootfs
 
@@ -63,7 +63,7 @@ You should be able to SSH in immediately.
 
 ### Wi‑Fi (Headless)
 
-1. Remove the SD card from the Pi  
+1. Remove the SD card from the Pi after powering it down safely
 2. Insert it into another computer  
 3. On the **boot** partition, create a file called `wpa_supplicant.conf`:
 
@@ -76,9 +76,9 @@ network={
 }
 ```
 
-4. Reinsert the SD card and boot the Pi
+4. Savem, reinsert the SD card and boot the Pi
 
-It should connect automatically.
+It should connect automatically. Should. 
 
 ---
 
