@@ -1,40 +1,31 @@
-const menuButton = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.site-nav');
+const menuButton = document.querySelector('[data-menu-button]');
+const nav = document.querySelector('[data-nav]');
 
-menuButton?.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', String(open));
-});
-
-nav?.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    menuButton?.setAttribute('aria-expanded', 'false');
+if (menuButton && nav) {
+  menuButton.addEventListener('click', () => {
+    const open = nav.classList.toggle('is-open');
+    menuButton.setAttribute('aria-expanded', String(open));
   });
-});
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
+  nav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('is-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    });
   });
-}, { threshold: 0.12 });
+}
 
-document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+const copyButton = document.querySelector('[data-copy-code]');
+const command = document.querySelector('#encode-command');
 
-document.querySelectorAll('[data-copy-target]').forEach((button) => {
-  button.addEventListener('click', async () => {
-    const target = document.getElementById(button.dataset.copyTarget);
-    if (!target) return;
+if (copyButton && command) {
+  copyButton.addEventListener('click', async () => {
     try {
-      await navigator.clipboard.writeText(target.textContent);
-      const original = button.textContent;
-      button.textContent = 'Copied';
-      setTimeout(() => { button.textContent = original; }, 1400);
+      await navigator.clipboard.writeText(command.textContent);
+      copyButton.textContent = 'Copied';
+      window.setTimeout(() => { copyButton.textContent = 'Copy'; }, 1800);
     } catch {
-      button.textContent = 'Select text';
+      copyButton.textContent = 'Select text';
     }
   });
-});
+}
