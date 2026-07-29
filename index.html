@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A flash-and-play Raspberry Pi image for reliable composite CRT video installations.">
+  <meta name="theme-color" content="#121710">
+  <meta property="og:title" content="RasPi Composite Player">
+  <meta property="og:description" content="Turn a Raspberry Pi 3B+ and a CRT into a dependable, unattended MP4 player.">
+  <meta property="og:type" content="website">
+  <title>RasPi Composite Player</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="RasPi Composite Player home">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span>raspi-composite-player</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+      <a href="#how-it-works">Setup</a>
+      <a href="#uses">Uses</a>
+      <a href="#prepare">Prepare video</a>
+      <a class="nav-cta" href="https://github.com/schwwaaa/raspi-composite-player" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero section-shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Composite video, minus the ritual.</p>
+        <h1>Turn an old CRT into a dependable video appliance.</h1>
+        <p class="hero-lede">A ready-to-flash Raspberry Pi 3B+ image that boots straight into your MP4 playlist, outputs through the Pi’s native composite jack, and loops until the power goes out.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://drive.google.com/file/d/1Y6pwTen5M_y9hYgS8aJSBdjM-uiVRS7-/view?usp=sharing" target="_blank" rel="noreferrer">Download image</a>
+          <a class="button secondary" href="#how-it-works">See how it works</a>
+        </div>
+        <ul class="hero-facts" aria-label="Project highlights">
+          <li>Autoplays on boot</li>
+          <li>Loops in filename order</li>
+          <li>Optional keypad control</li>
+        </ul>
+      </div>
+
+      <div class="hero-object reveal" aria-label="Stylized CRT television illustration">
+        <div class="crt">
+          <div class="crt-top"></div>
+          <div class="crt-body">
+            <div class="screen-wrap">
+              <div class="screen">
+                <div class="screen-glow"></div>
+                <div class="scanlines"></div>
+                <div class="screen-copy">
+                  <span>INPUT 01</span>
+                  <strong>PLAY</strong>
+                  <small>00:00:01</small>
+                </div>
+              </div>
+            </div>
+            <div class="controls" aria-hidden="true">
+              <div class="dial"></div>
+              <div class="dial small"></div>
+              <div class="speaker"></div>
+            </div>
+          </div>
+          <div class="crt-feet"><span></span><span></span></div>
+        </div>
+        <div class="cable" aria-hidden="true"></div>
+        <div class="signal-tag">480i / composite</div>
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Project statement">
+      <div class="marquee-track">
+        <span>FLASH IT</span><i>•</i><span>PLUG IT IN</span><i>•</i><span>PLAY FOREVER</span><i>•</i>
+        <span>FLASH IT</span><i>•</i><span>PLUG IT IN</span><i>•</i><span>PLAY FOREVER</span><i>•</i>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="section section-shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">The whole procedure</p>
+        <h2>Five steps. No desktop. No daily operator.</h2>
+        <p>The image handles the awkward legacy setup so the finished object behaves more like a DVD player than a Linux computer.</p>
+      </div>
+      <ol class="steps">
+        <li class="reveal"><span>01</span><h3>Download</h3><p>Grab and uncompress the prepared disk image.</p></li>
+        <li class="reveal"><span>02</span><h3>Flash</h3><p>Write it to an SD card with your preferred imaging tool.</p></li>
+        <li class="reveal"><span>03</span><h3>Connect</h3><p>Use a TRRS-to-RCA cable from the Pi 3B+ to your CRT.</p></li>
+        <li class="reveal"><span>04</span><h3>Insert</h3><p>Put the SD card in the Pi and connect power.</p></li>
+        <li class="reveal"><span>05</span><h3>Watch</h3><p>The demo starts automatically and loops continuously.</p></li>
+      </ol>
+    </section>
+
+    <section class="feature-band">
+      <div class="section-shell feature-grid">
+        <article class="feature-card reveal"><span class="feature-icon">▶</span><h3>Autoplay by default</h3><p>Playback starts after boot with no login, mouse, window manager, or media-player interface.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon">↻</span><h3>Simple playlists</h3><p>Drop MP4s into <code>/home/mediaplayer/media</code>. Files loop in ascending alphanumeric order.</p></article>
+        <article class="feature-card reveal"><span class="feature-icon">⌨</span><h3>Physical controls</h3><p>Connect any USB keyboard or numpad for pause, seek, next, previous, and quit controls.</p></article>
+      </div>
+    </section>
+
+    <section id="uses" class="section section-shell">
+      <div class="section-heading split reveal">
+        <div><p class="eyebrow">What it becomes</p><h2>Not a media center. A little solid-state VCR.</h2></div>
+        <p>Pair one Pi with one screen, hide the computer, and let the display become a finished object.</p>
+      </div>
+      <div class="use-grid">
+        <article class="use-card wide reveal"><span>01</span><h3>Video art & museum installations</h3><p>Power on in the morning, power off at night. No one needs to navigate a desktop or restart VLC.</p></article>
+        <article class="use-card reveal"><span>02</span><h3>CRT sculpture</h3><p>Build the player into a shrine, kiosk, prop terminal, vending machine, or impossible appliance.</p></article>
+        <article class="use-card reveal"><span>03</span><h3>Fake television channel</h3><p>Sequence station IDs, short films, ads, weather, public-access fragments, and emergency interruptions.</p></article>
+        <article class="use-card reveal"><span>04</span><h3>Analog processing source</h3><p>Feed composite through VCRs, mixers, glitch hardware, feedback chains, and capture devices.</p></article>
+        <article class="use-card reveal"><span>05</span><h3>Archive viewing station</h3><p>Present home movies, oral histories, local television, VHS transfers, or community footage on period-appropriate hardware.</p></article>
+        <article class="use-card wide reveal"><span>06</span><h3>Video zine, album, or edition</h3><p>Distribute a Pi, SD card, cable, and numbered playlist as a self-contained audiovisual publication.</p></article>
+      </div>
+    </section>
+
+    <section id="prepare" class="section dark-section">
+      <div class="section-shell prep-layout">
+        <div class="prep-copy reveal">
+          <p class="eyebrow">Feed the CRT properly</p>
+          <h2>Pre-encode once. Play smoothly forever.</h2>
+          <p>Composite playback is happiest when the Pi does not have to resize or reinterpret modern high-resolution files in real time.</p>
+          <div class="spec-list">
+            <div><strong>720 × 480</strong><span>canvas</span></div>
+            <div><strong>29.97</strong><span>frames/sec</span></div>
+            <div><strong>H.264</strong><span>baseline</span></div>
+            <div><strong>1–1.5</strong><span>Mbps video</span></div>
+          </div>
+        </div>
+        <div class="code-card reveal">
+          <div class="code-top"><span>ffmpeg</span><button class="copy-button" type="button" data-copy-target="ffmpeg-command">Copy</button></div>
+          <pre><code id="ffmpeg-command">ffmpeg -i input.mp4 \
+  -vf "scale=720:480:force_original_aspect_ratio=decrease,\
+pad=720:480:(ow-iw)/2:(oh-ih)/2" \
+  -r 30000/1001 \
+  -pix_fmt yuv420p \
+  -c:v libx264 -profile:v baseline -level 3.0 \
+  -b:v 1500k \
+  -c:a aac -ar 44100 -ac 2 -b:a 128k \
+  output_pi_crt.mp4</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-shell controls-section">
+      <div class="section-heading reveal"><p class="eyebrow">Optional input</p><h2>A $10 numpad makes a fine remote.</h2></div>
+      <div class="keypad-layout">
+        <div class="keypad reveal" aria-label="Example numeric keypad controls">
+          <div class="key muted">7<small>previous</small></div><div class="key muted">8</div><div class="key accent">9<small>next</small></div>
+          <div class="key accent">4<small>back</small></div><div class="key primary-key">5<small>pause</small></div><div class="key accent">6<small>forward</small></div>
+          <div class="key muted">1</div><div class="key muted">2</div><div class="key muted">3</div>
+        </div>
+        <div class="control-copy reveal">
+          <p>The control service starts automatically, waits for devices to appear, works with ordinary USB keyboards, and recovers when they are unplugged and reconnected.</p>
+          <dl>
+            <div><dt>Space / KP5</dt><dd>Pause or resume</dd></div>
+            <div><dt>← / KP4</dt><dd>Seek backward</dd></div>
+            <div><dt>→ / KP6</dt><dd>Seek forward</dd></div>
+            <div><dt>P / KP7</dt><dd>Previous video</dd></div>
+            <div><dt>N / KP9</dt><dd>Next video</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section section-shell reveal">
+      <div>
+        <p class="eyebrow">Simple and boring on purpose</p>
+        <h2>Give the old television one job.</h2>
+        <p>Reliable composite playback for Raspberry Pi 3 Model B+. Nothing more until it needs to be.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="button primary" href="https://drive.google.com/file/d/1Y6pwTen5M_y9hYgS8aJSBdjM-uiVRS7-/view?usp=sharing" target="_blank" rel="noreferrer">Download the image</a>
+        <a class="text-link" href="https://github.com/schwwaaa/raspi-composite-player/blob/main/README.md" target="_blank" rel="noreferrer">Read full documentation ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <p>raspi-composite-player</p>
+    <p>Built for the Raspberry Pi 3 Model B+ and the televisions everyone else forgot.</p>
+    <a href="https://github.com/schwwaaa" target="_blank" rel="noreferrer">schwwaaa ↗</a>
+  </footer>
+</body>
+</html>
